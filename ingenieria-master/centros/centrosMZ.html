@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #map {
+            width: 800px;
+            height: 500px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zona Muñiz.</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+
+        var map = L.map('map').setView([-34.550219, -58.700737], 14.5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([-34.549254, -58.702500]).addTo(map)
+            .bindPopup('Hospital Plaza</b><br><a href="plazaCoord.html" target="_blank">Ir a Hospital Plaza</a>')
+            .openPopup();
+
+        L.marker([-34.551428, -58.699872]).addTo(map)
+            .bindPopup('Hospital Odontologico</b><br><a href="odontologicoCoord.html" target="_blank">Ir a Hospital Odontologico</a>')
+            .openPopup();
+
+        L.marker([-34.551790, -58.704303]).addTo(map)
+            .bindPopup('Hospital Estacion</b><br><a href="estacionCoord.html" target="_blank">Ir a Hospital Estacion</a>')
+            .openPopup();
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Paleta de Colores */
+/* #934600 marroncito
+#F08D0C naranjita
+#FFCE97 clarito
+#EEFF41 amarillito
+#63AF1D verde */
+
+/* Estilos Comunes */
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+img {
+    border-radius: 10px;
+}
+
+/* Estilos Header */
+header {
+    background-image: linear-gradient(#820cf0, #ffe7cb);
+    /* background-color: #934600; */
+    color: #ffe7cb;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    height: 300;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header div {
+    background-color: #181616;
+    padding: 10px;
+    border-style: inset;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+}
+
+header img {
+    height: 22vw;
+    padding: 5px;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+}
+
+@media (max-width: 420px) {
+    header {
+        flex-direction: column;
+    }
+    /* header img {
+        padding: 5px;
+    } */
+}
+
+/* Estilos Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #181616;
+    position: sticky;
+    top: 0;
+    border-style: inset;
+    border-color: brown;
+    border-width: 5px;
+}
+
+.navbar a {
+    border: 2px solid brown;
+    border-radius: 10px;
+    padding: 14px 20px;
+    background-color: #ffe7cb;
+    text-decoration: none;
+    color: brown;
+}
+
+.navbar a:hover {
+    background-color: brown;
+    color: #ffe7cb;
+}
+
+@media (max-width: 775px) {
+    .navbar {
+        flex-direction: column;
+        position: unset;
+    }
+    .navbar a {
+        text-align: center;
+    }
+}

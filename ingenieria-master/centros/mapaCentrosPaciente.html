@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #map {
+            width: 800px;
+            height: 500px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Centros de atención</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([-34.548542, -58.698838], 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([-34.536071, -58.720476]).addTo(map)
+            .bindPopup('<b>Hospital Larcade</b><br><a href="larcade.html" target="_blank">Ir a Hospital Larcade</a>')
+            .openPopup();
+
+        L.marker([-34.541017, -58.711927]).addTo(map)
+            .bindPopup('Hospital Bessone</b><br><a href="bessone.html" target="_blank">Ir a Hospital Bessone</a>')
+            .openPopup();
+
+        L.marker([-34.540245, -58.714642]).addTo(map)
+            .bindPopup('Hospital Sarmiento</b><br><a href="sarmiento.html" target="_blank">Ir a Hospital Sarmiento</a>')
+            .openPopup();
+
+        L.marker([-34.549254, -58.702500]).addTo(map)
+            .bindPopup('Hospital Plaza</b><br><a href="plaza.html" target="_blank">Ir a Hospital Plaza</a>')
+            .openPopup();
+
+        L.marker([-34.551428, -58.699872]).addTo(map)
+            .bindPopup('Hospital Odontologico</b><br><a href="odontologico.html" target="_blank">Ir a Hospital Odontologico</a>')
+            .openPopup();
+
+        L.marker([-34.551790, -58.704303]).addTo(map)
+            .bindPopup('Hospital Estacion</b><br><a href="estacion.html" target="_blank">Ir a Hospital Estacion</a>')
+            .openPopup();
+
+        L.marker([-34.549361, -58.673087]).addTo(map)
+            .bindPopup('Hospital Militar</b><br><a href="hospitalMilitar.html" target="_blank">Ir a Hospital Militar</a>')
+            .openPopup();
+
+        const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+        console.log("Usuario logueado:", usuarioLogueado); // Verifica que el usuario está bien recuperado
+
+        // Función para verificar si el hospital está en la lista de hospitales atendidos por el usuario
+        function puedeAcceder(hospital) {
+            if (usuarioLogueado && usuarioLogueado.atendido && usuarioLogueado.atendido.includes(hospital)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #map {
+            width: 800px;
+            height: 500px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zona San Miguel.</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([-34.542658, -58.711856], 14.5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([-34.536071, -58.720476]).addTo(map)
+            .bindPopup('<b>Hospital Larcade</b><br><a href="larcadeCoord.html" target="_blank">Ir a Hospital Larcade</a>')
+            .openPopup();
+
+        L.marker([-34.541017, -58.711927]).addTo(map)
+            .bindPopup('Hospital Bessone</b><br><a href="bessoneCoord.html" target="_blank">Ir a Hospital Bessone</a>')
+            .openPopup();
+
+        L.marker([-34.540245, -58.714642]).addTo(map)
+            .bindPopup('Hospital Sarmiento</b><br><a href="sarmientoCoord.html" target="_blank">Ir a Hospital Sarmiento</a>')
+            .openPopup();
+    </script>
+</body>
+</html>
